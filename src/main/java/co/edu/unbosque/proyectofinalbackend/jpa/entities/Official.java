@@ -2,6 +2,7 @@ package co.edu.unbosque.proyectofinalbackend.jpa.entities;
 
 import javax.persistence.*;
 
+//hahhh
 @Table(name = "official")
 @Entity
 @PrimaryKeyJoinColumn
