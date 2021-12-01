@@ -1,10 +1,8 @@
 package co.edu.unbosque.proyectofinalbackend.services;
 
 
-import co.edu.unbosque.proyectofinalbackend.jpa.entities.Owner;
+
 import co.edu.unbosque.proyectofinalbackend.jpa.entities.Pet;
-import co.edu.unbosque.proyectofinalbackend.jpa.repositories.OwnerRepository;
-import co.edu.unbosque.proyectofinalbackend.jpa.repositories.OwnerRepositoryImpl;
 import co.edu.unbosque.proyectofinalbackend.jpa.repositories.PetRepositoryImpl;
 import co.edu.unbosque.proyectofinalbackend.jpa.repositories.PetRepository;
 import co.edu.unbosque.proyectofinalbackend.resources.pojos.PetPOJO;
@@ -19,39 +17,38 @@ import java.util.Optional;
 public class PetService {
 
     PetRepository petRepository;
-    OwnerRepository ownerRepository;
 
-    public Optional<PetPOJO> createPet(PetPOJO petPOJO) {
+    public PetPOJO createPet(String pet_id, Long microchip,String name,String species,
+                             String race,String size,String sex,String picture,String ownerId)
+    {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         petRepository = new PetRepositoryImpl(entityManager);
+        Optional<Pet> pet =  petRepository.save(new Pet(pet_id,microchip, name, species, race, size, sex, picture),ownerId );
 
-        Pet pet = new Pet(petPOJO.getPet_id(),petPOJO.getMicrochip(),petPOJO.getName(),petPOJO.getSpecies(),petPOJO.getRace()
-                       ,petPOJO.getSize(),petPOJO.getSize(),petPOJO.getPicture(),petPOJO.getOwner_id());
-        Optional<Pet> persistedPet = petRepository.save(pet);
 
         entityManager.close();
         entityManagerFactory.close();
 
-        if (persistedPet.isPresent()) {
-            return Optional.of(new PetPOJO(
-                    persistedPet.get().getPet_id(),
-                    persistedPet.get().getMicrochip(),
-                    persistedPet.get().getName(),
-                    persistedPet.get().getSpecies(),
-                    persistedPet.get().getRace(),
-                    persistedPet.get().getSize(),
-                    persistedPet.get().getSex(),
-                    persistedPet.get().getPicture(),
-                    persistedPet.get().getOwner()
-            ));
+        PetPOJO petPOJO = null;
+        if (pet.isPresent()) {
+            petPOJO = new PetPOJO(
+                    pet.get().getPet_id(),
+                    pet.get().getMicrochip(),
+                    pet.get().getName(),
+                    pet.get().getSpecies(),
+                    pet.get().getRace(),
+                    pet.get().getSize(),
+                    pet.get().getSex(),
+                    pet.get().getPicture(),
+                    pet.get().getOwner());
 
-        } else {
-            return Optional.empty();
         }
+            return petPOJO;
     }
+    /*
     public Owner findOwner_id(String owner_id) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -66,5 +63,5 @@ public class PetService {
         return owner;
 
     }
-
+*/
 }

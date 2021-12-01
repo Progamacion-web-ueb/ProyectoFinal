@@ -1,5 +1,7 @@
 package co.edu.unbosque.proyectofinalbackend.jpa.repositories;
 
+import co.edu.unbosque.proyectofinalbackend.jpa.entities.Pet;
+import co.edu.unbosque.proyectofinalbackend.jpa.entities.Vet;
 import co.edu.unbosque.proyectofinalbackend.jpa.entities.Visit;
 
 import javax.persistence.EntityManager;
@@ -14,12 +16,23 @@ public class VisitRepositoryImpl implements VisitRepository{
     }
 
     @Override
-    public Optional<Visit> save(Visit visit) {
+    public Optional<Visit> save(Visit visit, String pet_id,String visit_id) {
         try {
             entityManager.getTransaction().begin();
+
+            Pet pet =  entityManager.find(Pet.class ,pet_id);
+            visit.setPet(pet);
+            System.out.println("Movie returned: " + pet.getPet_id());
+
+            Vet vet =  entityManager.find(Vet.class ,visit_id);
+            visit.setVet(vet);
+            System.out.println("Movie returned: " + vet.getUsername());
+
             entityManager.persist(visit);
             entityManager.getTransaction().commit();
+
             return Optional.of(visit);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

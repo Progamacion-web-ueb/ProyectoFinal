@@ -25,12 +25,12 @@ public class OwnerRepositoryImpl implements OwnerRepository {
         }
         return Optional.empty();
     }
-
+/*
     public Owner findByUsername(String username) {
         Owner owner = (Owner) entityManager.createNamedQuery("Owner.findByUsername",Owner.class)
                 .setParameter("username", username)
                 .getSingleResult();
         return owner ;
     }
-
+*/
 }

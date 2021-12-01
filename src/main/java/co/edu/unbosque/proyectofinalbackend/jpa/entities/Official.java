@@ -2,7 +2,6 @@ package co.edu.unbosque.proyectofinalbackend.jpa.entities;
 
 import javax.persistence.*;
 
-//hahhh
 @Table(name = "official")
 @Entity
 @PrimaryKeyJoinColumn
@@ -25,7 +24,6 @@ public class Official extends UserApp {
         super(username, password, email, "official");
         this.name = name;
     }
-
 
     public String getName() {
         return name;

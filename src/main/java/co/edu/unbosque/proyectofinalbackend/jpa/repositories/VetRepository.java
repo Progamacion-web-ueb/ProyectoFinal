@@ -9,5 +9,6 @@ public interface VetRepository {
 
     Optional<Vet> save(Vet vet);
 
-    Vet findByVet_id(String Username);
+
+    //Vet findByVet_id(String Username);
 }

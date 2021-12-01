@@ -8,7 +8,5 @@ import java.util.Optional;
 
 public interface PetCaseRepository {
 
-
-
-    Optional<PetCase> save(PetCase petCase);
+    Optional<PetCase> save(PetCase petCase, String pet_id);
 }

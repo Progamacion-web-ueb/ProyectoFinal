@@ -8,5 +8,5 @@ public interface OwnerRepository {
 
     Optional<Owner> save(Owner owner);
 
-    Owner findByUsername(String Username);
+  //  Owner findByUsername(String Username);
 }

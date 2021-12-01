@@ -22,22 +22,16 @@ public class VisitResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response create(VisitPOJO visit, @PathParam("vet_id") String vet_id, @PathParam("pet_id") String pet_id) {
+        
+        visit = new VisitService().createVisit(visit.getVisit_id(),visit.getCreated_at(),visit.getType(),visit.getDescription(),visit.getPet_id(),visit.getVet_id());
 
-        Vet vet = new VisitService().findVet_id(vet_id);
-        visit.setVet_id(vet);
-/*
-        Pet pet = new VisitService().findPet_id(pet_id);
-        visit.setPet_id(pet);
-*/
-        Optional<VisitPOJO> persistedVisit = new VisitService().createVisit(visit);
-
-        if (persistedVisit.isPresent()) {
+        if (!visit.equals(null)) {
             return Response.status(Response.Status.CREATED)
-                    .entity(persistedVisit.get())
+                    .entity(visit)
                     .build();
         } else {
             return Response.serverError()
-                    .entity("PetCase could not be created")
+                    .entity("Pet could not be created")
                     .build();
         }
     }

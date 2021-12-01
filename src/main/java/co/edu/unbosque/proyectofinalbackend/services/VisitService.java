@@ -4,6 +4,7 @@ import co.edu.unbosque.proyectofinalbackend.jpa.entities.Pet;
 import co.edu.unbosque.proyectofinalbackend.jpa.entities.Vet;
 import co.edu.unbosque.proyectofinalbackend.jpa.entities.Visit;
 import co.edu.unbosque.proyectofinalbackend.jpa.repositories.*;
+import co.edu.unbosque.proyectofinalbackend.resources.pojos.PetCasePOJO;
 import co.edu.unbosque.proyectofinalbackend.resources.pojos.VisitPOJO;
 
 import javax.ejb.Stateless;
@@ -19,35 +20,41 @@ public class VisitService {
     VetRepository vetRepository;
     PetRepository petRepository;
 
-    public Optional<VisitPOJO> createVisit(VisitPOJO visitPOJO) {
+
+    /*
+            this.visit_id = visit_id;
+        this.created_at = created_at;
+        this.type = type;
+        this.description = description;
+        this.pet_id = pet_id;
+        this.vet_id = vet_id;
+     */
+    public VisitPOJO createVisit(String visit_id, String created_at,String type,String description,String pet_id,String vet_id) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         visitRepository = new VisitRepositoryImpl(entityManager);
+        Optional<Visit> visit = visitRepository.save(new Visit(visit_id,created_at,type,description), pet_id,vet_id);
 
-        Visit visit = new Visit(visitPOJO.getVisit_id(),visitPOJO.getCreated_at(),visitPOJO.getType(),
-                visitPOJO.getDescription(),visitPOJO.getPet_id(),visitPOJO.getVet_id());
 
-        Optional<Visit> persistedVisit = visitRepository.save(visit);
 
         entityManager.close();
         entityManagerFactory.close();
 
-        if (persistedVisit.isPresent()) {
-            return Optional.of(new VisitPOJO(
-                    persistedVisit.get().getVisit_id(),
-                    persistedVisit.get().getCreated_at(),
-                    persistedVisit.get().getType(),
-                    persistedVisit.get().getDescription(),
-                    persistedVisit.get().getPet(),
-                    persistedVisit.get().getVet()));
-        } else {
-            return Optional.empty();
+        VisitPOJO visitPOJO = null;
+        if (visit.isPresent()) {
+            visitPOJO = new VisitPOJO(
+                    visit.get().getVisit_id(),
+                    visit.get().getCreated_at(),
+                    visit.get().getType(),
+                    visit.get().getDescription(),
+                    visit.get().getPet(),
+                    visit.get().getVet());
         }
-
+        return visitPOJO;
     }
-
+/*
     public Vet findVet_id(String vet_id) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -74,5 +81,5 @@ public class VisitService {
 
         return pet;
     }
-
+*/
 }

@@ -25,7 +25,7 @@ public class Owner extends UserApp {
     @Column(name = "neighborhood", nullable = false)
     private String neighborhood;
 
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Pet> pet;
 
     public Owner() {

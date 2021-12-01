@@ -14,21 +14,22 @@ public class PetCaseResource {
 // se crea pet pero el idpet queda en null
 
     @POST
-    @Path("/{type}")
+    @Path("/{pet_id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(PetCasePOJO petCase, @PathParam("type") String type) {
+    public Response create(PetCasePOJO petCase, @PathParam("pet_id") String pet_id) {
 
-        petCase.setType(type);
-        Optional<PetCasePOJO> persistedPetCase = new PetCaseService().createPetCase(petCase);
+        System.out.println(petCase.getPet_id()+"otro"+pet_id);
 
-        if (persistedPetCase.isPresent()) {
+        petCase = new PetCaseService().createPetCase(petCase.getCase_id(), petCase.getCreated_at(), petCase.getType(), petCase.getDescription(), petCase.getPet_id());
+
+        if (!petCase.equals(null)) {
             return Response.status(Response.Status.CREATED)
-                    .entity(persistedPetCase.get())
+                    .entity(petCase)
                     .build();
         } else {
             return Response.serverError()
-                    .entity("PetCase could not be created")
+                    .entity("Pet could not be created")
                     .build();
         }
     }

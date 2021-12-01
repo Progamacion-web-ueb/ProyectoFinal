@@ -20,13 +20,15 @@ public class PetPOJO {
 
     private String picture;
 
-    private Owner owner_id;
+    private Owner owner;
+
+    private String owner_id;
 
     public PetPOJO() {
     }
 
     public PetPOJO(String pet_id, Long microchip, String name, String species,
-                   String race, String size, String sex, String picture, Owner owner_id) {
+                   String race, String size, String sex, String picture, String owner_id) {
         this.pet_id = pet_id;
         this.microchip = microchip;
         this.name = name;
@@ -36,6 +38,19 @@ public class PetPOJO {
         this.sex = sex;
         this.picture = picture;
         this.owner_id = owner_id;
+    }
+
+    public PetPOJO(String pet_id, Long microchip, String name, String species,
+                   String race, String size, String sex, String picture, Owner owner) {
+        this.pet_id = pet_id;
+        this.microchip = microchip;
+        this.name = name;
+        this.species = species;
+        this.race = race;
+        this.size = size;
+        this.sex = sex;
+        this.picture = picture;
+        this.owner = owner;
     }
 
     public String getPet_id() {
@@ -102,11 +117,19 @@ public class PetPOJO {
         this.picture = picture;
     }
 
-    public Owner getOwner_id() {
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+    }
+
+    public String getOwner_id() {
         return owner_id;
     }
 
-    public void setOwner_id(Owner owner_id) {
+    public void setOwner_id(String owner_id) {
         this.owner_id = owner_id;
     }
 

@@ -26,7 +26,7 @@ public class VetRepositoryImpl implements VetRepository {
         }
         return Optional.empty();
     }
-
+/*
     @Override
     public Vet findByVet_id(String username) {
         Vet vet = (Vet) entityManager.createNamedQuery("Vet.findByUsername",Vet.class)
@@ -34,5 +34,5 @@ public class VetRepositoryImpl implements VetRepository {
                 .getSingleResult();
         return vet ;
     }
-
+*/
 }

@@ -1,16 +1,16 @@
 package co.edu.unbosque.proyectofinalbackend.services;
 
 
+
 import co.edu.unbosque.proyectofinalbackend.jpa.entities.PetCase;
 import co.edu.unbosque.proyectofinalbackend.jpa.repositories.PetCaseRepositoryImpl;
 import co.edu.unbosque.proyectofinalbackend.jpa.repositories.PetCaseRepository;
 import co.edu.unbosque.proyectofinalbackend.resources.pojos.PetCasePOJO;
+import co.edu.unbosque.proyectofinalbackend.resources.pojos.PetPOJO;
 
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.Optional;
 
 @Stateless
@@ -18,31 +18,28 @@ public class PetCaseService {
 
     PetCaseRepository petCaseRepository;
 
-    public Optional<PetCasePOJO> createPetCase(PetCasePOJO petCasePOJO) {
+
+    public PetCasePOJO createPetCase(String case_id, String created_at,String type,String description,String pet_id) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         petCaseRepository = new PetCaseRepositoryImpl(entityManager);
-
-        PetCase petCase = new PetCase(petCasePOJO.getCase_id(),petCasePOJO.getCreated_at(),petCasePOJO.getType()
-                                        ,petCasePOJO.getDescription(),petCasePOJO.getPet_id());
-
-        Optional<PetCase> persistedPetCase = petCaseRepository.save(petCase);
+        Optional<PetCase> petcase = petCaseRepository.save(new PetCase(case_id,created_at,type,description), pet_id);
 
         entityManager.close();
         entityManagerFactory.close();
 
-        if (persistedPetCase.isPresent()) {
-            return Optional.of(new PetCasePOJO(
-                    persistedPetCase.get().getCase_id(),
-                    persistedPetCase.get().getCreated_at(),
-                    persistedPetCase.get().getType(),
-                    persistedPetCase.get().getDescription(),
-                    persistedPetCase.get().getPet()));
-        } else {
-            return Optional.empty();
+        PetCasePOJO petCasePOJO = null;
+        if (petcase.isPresent()) {
+            petCasePOJO = new PetCasePOJO(
+                    petcase.get().getCase_id(),
+                    petcase.get().getCreated_at(),
+                    petcase.get().getType(),
+                    petcase.get().getDescription(),
+                    petcase.get().getPet());
         }
+        return petCasePOJO;
 
     }
 }

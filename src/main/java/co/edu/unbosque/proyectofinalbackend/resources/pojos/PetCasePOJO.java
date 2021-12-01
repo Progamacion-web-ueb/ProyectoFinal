@@ -8,12 +8,21 @@ public class PetCasePOJO {
     private String created_at;
     private String type;
     private String description;
-    private Pet pet_id;
+    private Pet pet;
+    private String pet_id;
 
     public PetCasePOJO() {
     }
 
-    public PetCasePOJO(String case_id, String created_at, String type, String description, Pet pet_id) {
+    public PetCasePOJO(String case_id, String created_at, String type, String description, Pet pet) {
+        this.case_id = case_id;
+        this.created_at = created_at;
+        this.type = type;
+        this.description = description;
+        this.pet = pet;
+    }
+
+    public PetCasePOJO(String case_id, String created_at, String type, String description, String pet_id) {
         this.case_id = case_id;
         this.created_at = created_at;
         this.type = type;
@@ -53,11 +62,19 @@ public class PetCasePOJO {
         this.description = description;
     }
 
-    public Pet getPet_id() {
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
+
+    public String getPet_id() {
         return pet_id;
     }
 
-    public void setPet_id(Pet pet_id) {
+    public void setPet_id(String pet_id) {
         this.pet_id = pet_id;
     }
 }

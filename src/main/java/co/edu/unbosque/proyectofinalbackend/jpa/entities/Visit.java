@@ -30,13 +30,11 @@ public class Visit {
     public Visit() {
     }
 
-    public Visit(String visit_id, String created_at, String type, String description,  Pet pet,Vet vet) {
+    public Visit(String visit_id, String created_at, String type, String description) {
         this.visit_id = visit_id;
         this.created_at = created_at;
         this.type = type;
         this.description = description;
-        this.pet = pet;
-        this.vet = vet;
     }
 
     public String getVisit_id() {

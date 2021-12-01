@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Table(name = "pet_case")
 @Entity
 public class PetCase {
+
     @Id
     @Column(name = "case_id")
     private String case_id;
@@ -25,12 +26,11 @@ public class PetCase {
     public PetCase() {
     }
 
-    public PetCase(String case_id, String created_at, String type, String description, Pet pet) {
+    public PetCase(String case_id, String created_at, String type, String description) {
         this.case_id = case_id;
         this.created_at = created_at;
         this.type = type;
         this.description = description;
-        this.pet = pet;
     }
 
     public String getCase_id() {

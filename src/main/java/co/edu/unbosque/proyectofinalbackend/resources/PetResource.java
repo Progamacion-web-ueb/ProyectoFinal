@@ -18,27 +18,29 @@ public class PetResource {
 // se crea pet pero el id queda en null
 
     @POST
-    @Path("/{owner_id}")
+
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(PetPOJO pet , @PathParam("owner_id") String owner_id) {
+    public Response create(PetPOJO pet ) {
 
-        Owner owner = new PetService().findOwner_id(owner_id);
-        System.out.println("esteaa es la respuestaaaa   000"+owner_id);
-        System.out.println("esteaa es la respuestaaaa   111"+owner.toString());
-        pet.setOwner_id(owner);
-        System.out.println("esteaa es la respuestaaaa   222"+pet.getOwner_id());
-        Optional<PetPOJO> persistedPet = new PetService().createPet(pet);
+        System.out.println(pet.toString());
 
-        if (persistedPet.isPresent()) {
+        pet= new PetService().createPet(pet.getPet_id(),pet.getMicrochip(),pet.getName(),
+                pet.getSpecies(),pet.getRace(),pet.getSize(),pet.getSex(),pet.getPicture(), pet.getOwner_id());
+
+        System.out.println("ejecuacion");
+
+        if (!pet.equals(null)) {
             return Response.status(Response.Status.CREATED)
-                    .entity(persistedPet.get())
+                    .entity(pet)
                     .build();
         } else {
             return Response.serverError()
                     .entity("Pet could not be created")
                     .build();
         }
+
+
     }
 
 }
