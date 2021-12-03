@@ -37,8 +37,6 @@ public class VisitService {
         visitRepository = new VisitRepositoryImpl(entityManager);
         Optional<Visit> visit = visitRepository.save(new Visit(visit_id,created_at,type,description), pet_id,vet_id);
 
-
-
         entityManager.close();
         entityManagerFactory.close();
 

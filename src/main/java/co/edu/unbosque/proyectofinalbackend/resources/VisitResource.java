@@ -1,9 +1,5 @@
 package co.edu.unbosque.proyectofinalbackend.resources;
 
-
-import co.edu.unbosque.proyectofinalbackend.jpa.entities.Pet;
-import co.edu.unbosque.proyectofinalbackend.jpa.entities.Vet;
-import co.edu.unbosque.proyectofinalbackend.jpa.entities.Visit;
 import co.edu.unbosque.proyectofinalbackend.resources.filters.Logged;
 import co.edu.unbosque.proyectofinalbackend.resources.pojos.VisitPOJO;
 import co.edu.unbosque.proyectofinalbackend.services.VisitService;
@@ -22,7 +18,7 @@ public class VisitResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response create(VisitPOJO visit, @PathParam("vet_id") String vet_id, @PathParam("pet_id") String pet_id) {
-        
+
         visit = new VisitService().createVisit(visit.getVisit_id(),visit.getCreated_at(),visit.getType(),visit.getDescription(),visit.getPet_id(),visit.getVet_id());
 
         if (!visit.equals(null)) {

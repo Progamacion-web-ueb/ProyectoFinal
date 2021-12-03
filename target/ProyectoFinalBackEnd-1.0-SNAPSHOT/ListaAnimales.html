@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cargar De animales</title>
+    <link href="CSS/estiloFNA.css" rel="stylesheet">
+    <link href="Css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+
+<body>
+    
+    <tr>
+    </tr>
+
+    <ul>
+        <button class="btn-personalizado2"><a href="Mascotas2.html">Pagina Inicio</a></button>
+        <button class="btn-personalizado2"><a href="AgregarMascota.html"> Crear Mascota </a></button>
+        <button class="btn-personalizado2"><a href="PetUpdate.html"> Actualizar Mascota </a></button>
+        <button id="addDataTable" class="btn-personalizado2">Cargar Datos</button>
+        <button id="refresh" class="btn-personalizado2">Limpiar Datos</button>
+    </ul>
+
+    <div class="container">
+        <div class="table-responsive">
+            <h1 id="btn-dataBase" align="center">Lista De Mascotas</h1>
+            <div>
+                <b>
+                    <label>Filtar por:</label>
+                </b>
+                <select type="text" id="sizeOption">
+                    <option>seleccione</option>
+                    <option>Pequeño</option>
+                    <option>Mediano</option>
+                    <option>Grande</option>
+                </select>
+                <select type="text" id="dangerousOption">
+                    <option>seleccione</option>
+                    <option>No Amenaza</option>
+                    <option>Amenaza</option>
+                </select>
+                <select type="text" id="speciesOption">
+                    <option>seleccione</option>
+                    <option>Canino</option>
+                    <option>Felino</option>
+                </select>
+                <select type="text" id="sexOption">
+                    <option>seleccione</option>
+                    <option>Macho</option>
+                    <option>Hembra</option>
+                </select>
+                <select type="text" id="microchipOption">
+                    <option>seleccione</option>
+                    <option>Mascotas que SI tienen microchip</option>
+                    <option>Mascotas que NO tienen microchip</option>
+                </select>
+                <select type="text" id="sterileOption">
+                    <option>seleccione</option>
+                    <option>SI</option>
+                    <option>NO</option>
+                </select>
+                <button id="butonFilter" class="btn-personalizado3"> Realizar Filtros </button>
+            </div>
+            <div>
+                
+            </div>
+            <div><label></label> </div>
+        </div>
+    </div>
+<div>
+    <table>
+        <thead>
+        <th class="column-header">Nombre del propietario</th>
+        <th class="column-header">Nombre de la mascota</th>
+        <th class="column-header column-header-microchip">Microchip</th>
+        <th class="column-header column-header-species">Especie</th>
+        <th class="column-header column-header-sex">Sexo</th>
+        <th class="column-header column-header-size">Tamaño</th>
+        <th class="column-header column-header-sterilization">Esterilización</th>
+        <th class="column-header column-header-dangerous">Peligrosidad</th>
+        <th class="column-header column-header-neighborhood">Localidad</th>
+        <th class="column-header column-header-date">Fecha</th>
+        <th class="column-header column-header-key">Key</th>
+        <th class="column-header column-header-lastdate">Ultima Modificación</th>
+        <th class="column-header column-header-lastdate">Modificaion sterilizacion</th>
+        <th class="column-header column-header-lastdate">Modificacion Microchip</th>
+        <th class="column-header column-header-image">Imagen</th>
+        </thead>
+        <tbody id="body-table">
+            
+        </tbody>
+    </table>
+</div>
+
+</body>
+<script src="js/createDb.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+
+</html>
