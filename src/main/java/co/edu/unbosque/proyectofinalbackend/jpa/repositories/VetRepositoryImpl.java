@@ -4,6 +4,7 @@ package co.edu.unbosque.proyectofinalbackend.jpa.repositories;
 import co.edu.unbosque.proyectofinalbackend.jpa.entities.Vet;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 import java.util.Optional;
 
 public class VetRepositoryImpl implements VetRepository {
@@ -25,6 +26,11 @@ public class VetRepositoryImpl implements VetRepository {
             e.printStackTrace();
         }
         return Optional.empty();
+    }
+
+    @Override
+    public List<Vet> findAll() {
+        return entityManager.createQuery("from Vet ").getResultList();
     }
 /*
     @Override

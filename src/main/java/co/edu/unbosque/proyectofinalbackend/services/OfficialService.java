@@ -10,12 +10,37 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Stateless
 public class OfficialService {
 
     OfficialRepository officialRepository;
+
+    public List<OfficialPOJO> listAuthors() {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        officialRepository = new OfficialRepositoryImpl (entityManager);
+        List<Official> officials = officialRepository.findAll();
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<OfficialPOJO> officialsPOJO = new ArrayList<>();
+        for (Official official : officials) {
+            officialsPOJO.add(new OfficialPOJO(
+                    official.getUsername(),
+                    official.getPassword(),
+                    official.getEmail(),
+                    official.getName()));
+        }
+
+        return officialsPOJO;
+    }
 
     public Optional<OfficialPOJO> createOfficial(OfficialPOJO officialPOJO) {
 
@@ -30,7 +55,8 @@ public class OfficialService {
         entityManagerFactory.close();
 
         if (persistedOfficial.isPresent()) {
-            return Optional.of(new OfficialPOJO( persistedOfficial.get().getUsername(),
+            return Optional.of(new OfficialPOJO(
+                    persistedOfficial.get().getUsername(),
                     persistedOfficial.get().getPassword(),
                     persistedOfficial.get().getEmail(),
                     persistedOfficial.get().getName()));

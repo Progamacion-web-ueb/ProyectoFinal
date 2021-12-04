@@ -10,7 +10,6 @@ public class OfficialPOJO {
 
     private String name;
 
-
     public OfficialPOJO() {
     }
 
@@ -26,6 +25,7 @@ public class OfficialPOJO {
         this.email = email;
         this.name = name;
     }
+
 
     public String getUsername() {
         return username;

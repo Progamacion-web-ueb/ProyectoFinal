@@ -3,6 +3,7 @@ package co.edu.unbosque.proyectofinalbackend.jpa.repositories;
 import co.edu.unbosque.proyectofinalbackend.jpa.entities.Owner;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 import java.util.Optional;
 
 public class OwnerRepositoryImpl implements OwnerRepository {
@@ -24,6 +25,11 @@ public class OwnerRepositoryImpl implements OwnerRepository {
             e.printStackTrace();
         }
         return Optional.empty();
+    }
+
+    @Override
+    public List<Owner> findAll() {
+        return entityManager.createQuery("from Owner ").getResultList();
     }
 /*
     public Owner findByUsername(String username) {

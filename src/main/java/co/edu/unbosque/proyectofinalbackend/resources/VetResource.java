@@ -7,10 +7,23 @@ import co.edu.unbosque.proyectofinalbackend.services.VetService;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 import java.util.Optional;
 
 @Path("/vets")
 public class VetResource {
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response list() {
+
+        List<VetPOJO> vets ;
+        vets = new VetService().listVets();
+
+        return Response.ok()
+                .entity(vets)
+                .build();
+    }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -31,7 +44,8 @@ public class VetResource {
 
     }
 
-    @Logged
+/*
+    //@Logged
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public Response hello(@HeaderParam("role") String role) {
@@ -47,5 +61,5 @@ public class VetResource {
                 .build();
 
     }
-
+*/
 }

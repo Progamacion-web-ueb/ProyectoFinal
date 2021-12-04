@@ -22,19 +22,20 @@
 
     <nav>
         <ul id="sesion">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Cerrar Sesión</a></li>
+            <li><a id="register-official">Crear Usuario</a></li>
+            <li><a id="log-out">Cerrar Sesión</a></li>
         </ul>
     </nav><!-- / nav -->
 
     <nav>
         <ul id="options">
-            <li><a href="#">Lista de Propietarios</a></li>
-            <li><a href="#">Lista de Mascotas</a></li>
-            <li><a href="#">Lista de Casos</a></li>
-            <li><a href="#">Lista de Visitas</a></li>
-            <li><a href="#">Chat</a></li>
-            <li><a href="#">Actualizar Datos</a></li>
+            <li><a if="register-official">Crear Usuario</a></li>
+            <li><a id="list-owners">Lista de Propietarios</a></li>
+            <li><a id="list-pets">Lista de Mascotas</a></li>
+            <li><a id="list-cases">Lista de Casos</a></li>
+            <li><a id="list-visits">Lista de Visitas</a></li>
+            <li><a id="chat">Chat</a></li>
+            <li><a id="update-data">Actualizar Datos</a></li>
 
         </ul>
     </nav><!-- / nav -->
@@ -79,7 +80,9 @@
 <footer id="main-footer">
     <p>&copy; 2014 <a href="https://github.com/Progamacion-web-ueb/PoroyectoFinal">GitHub</a></p>
 </footer> <!-- / #main-footer -->
-<script src="js/main.js"></script>
+<script src="./js/log-out.js"></script>
+<script src="./js/official-pages.js"></script>
+<script src="./js/register-official.js"></script>
 
 </body>
 </html>

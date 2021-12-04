@@ -13,11 +13,25 @@ import javax.persistence.Persistence;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Path("/officials")
 public class OfficialResource {
 
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response list() {
+
+        List<OfficialPOJO> officials ;
+        officials = new OfficialService().listAuthors();
+
+        return Response.ok()
+                .entity(officials)
+                .build();
+    }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -55,19 +69,6 @@ public class OfficialResource {
         }
     }
 
-    @Logged
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public Response hello(@HeaderParam("role") String role) {
-        // If role doesn't match
-        if (!"vet".equals(role))
-            return Response.status(Response.Status.FORBIDDEN)
-                    .entity("Role " + role + " cannot access to this method")
-                    .build();
 
-        return Response.ok()
-                .entity("Hello, World, " + role + "!")
-                .build();
-    }
 
 }

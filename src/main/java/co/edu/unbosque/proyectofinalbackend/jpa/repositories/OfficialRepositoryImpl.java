@@ -2,6 +2,7 @@ package co.edu.unbosque.proyectofinalbackend.jpa.repositories;
 
 import co.edu.unbosque.proyectofinalbackend.jpa.entities.Official;
 import javax.persistence.EntityManager;
+import java.util.List;
 import java.util.Optional;
 
 public class OfficialRepositoryImpl implements  OfficialRepository{
@@ -24,6 +25,10 @@ public class OfficialRepositoryImpl implements  OfficialRepository{
         }
         return Optional.empty();
     }
+    @Override
+    public List<Official> findAll() {
+        return entityManager.createQuery("from Official ").getResultList();
+    }
 
     @Override
     public Official Update(String username,String name) {
@@ -33,4 +38,6 @@ public class OfficialRepositoryImpl implements  OfficialRepository{
                 .getSingleResult();
         return official ;
     }
+
+
 }
