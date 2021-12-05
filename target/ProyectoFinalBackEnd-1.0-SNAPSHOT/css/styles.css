@@ -1,0 +1,336 @@
+
+/************
+//-------------------------------
+// CABECERA
+//-------------------------------
+************/
+/*
+recuadro de el header
+ */
+#main-header {
+    background: #333;
+    color: white;
+    height: 80px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+}
+/*
+  titulo izq pag
+ */
+#logo-header {
+    float: left;
+    padding: 10px 0 0 20px;
+    text-decoration: none;
+}
+/*
+  nombres del logo
+ */
+#logo-header .site-desc {
+    display: block;
+    font-weight: 300;
+    font-size: 0.8em;
+    color: #999;
+}
+/*
+ * Navegación
+ */
+#options{
+    position: center;
+    right: 200px;
+}
+/*
+posiciones cabecera official
+ */
+navof {
+    float: right;
+    text-align: center;
+    display: block;
+}
+navof ul {
+    margin-top: 0em;
+    margin-bottom: 0em;
+    margin-left: 5px;
+    margin-right: 180px;
+    padding: 0px;
+    padding-right: 50px;
+    list-style-type: none;
+}
+
+navof ul li {
+    display: inline-block;
+    line-height: 35px;
+}
+
+navof ul li a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+}
+
+navof ul li a:hover {
+    background: #0b76a6;
+}
+
+/*
+posiciones cabecera owner
+ */
+navow {
+    float: right;
+    text-align: center;
+    display: inline-block;
+}
+navow ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-right: 35px;
+    list-style-type: none;
+}
+
+navow ul li {
+    display: inline-block;
+    line-height: 35px;
+}
+
+navow ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+navow ul li a:hover {
+    background: #0b76a6;
+}
+/*
+posiciones cabecera vet
+ */
+navve {
+    float: right;
+    text-align: center;
+    display: inline-block;
+}
+navve ul {
+    margin-top: 0em;
+    margin-bottom: 0em;
+    margin-left: 200px;
+    margin-right: 5px;
+    padding: 0;
+    list-style: none;
+    padding-right: 20px;
+    list-style-type: none;
+}
+
+navve ul li {
+    display: inline-block;
+    line-height: 20px;
+}
+
+navve ul li a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+}
+
+navve ul li a:hover {
+    background: #0b76a6;
+}
+
+
+
+
+/*
+colores de texto
+cabeceras
+ */
+a {
+    text-decoration: none;
+    font-weight: 900;
+    color: #ecf0f1;
+}
+
+/************
+//------------------------------
+// CONTENIDO
+//------------------------------
+************/
+/*
+styles sobre
+el div central
+ */
+
+#main-content {
+    border-radius: 20px;
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+/*
+posiciones
+div central
+ */
+#main-content header,
+#main-content .content {
+    padding: 40px;
+}
+
+
+
+/************
+//-----------------------------
+// PIE PÁGINA
+//-----------------------------
+************/
+#main-footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+#main-footer p {
+    margin: 0;
+}
+
+#main-footer a {
+    color: white;
+}
+/************
+//-----------------------------
+// FORMULARIO ADD PET
+//-----------------------------
+************/
+
+
+/************
+//--------------------------------
+// GENERAL
+//-------------------------------
+************/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #666;
+    background: #f2f2f2;
+    font-size: 1em;
+    line-height: 1.5em;
+    padding-top: 80px;
+}
+
+/*
+Titulo ciudadanos de cautro patas
+ */
+
+h1 {
+    font-size: 2.3em;
+    line-height: 1.3em;
+    margin: 15px 0;
+    text-align: center;
+    font-weight: 300;
+}
+/*
+imagen bajo el titulo
+ */
+img {
+    border-radius: 20px;
+    max-width: 100%;
+    height: auto;
+}
+/*
+ contenedor del
+ romulario tamaño
+ */
+.container {
+    max-width: 200px;
+    margin: 20px auto;
+}
+/*
+tamaño y estilos
+del formulario
+ */
+input {
+    margin: 0 0 .4em 0;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.01);
+    border: 0;
+    border-bottom: 5px solid rgba(0,0,0,.12);
+    line-height: 40px;
+}
+
+#chatbox {
+    text-align:left;
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background:#fff;
+    height:270px;
+    width:430px;
+    border:1px solid #ACD8F0;
+    overflow:auto; }
+
+#usermsg {
+    width:395px;
+    border:1px solid #ACD8F0;
+    margin-top: 10px;
+    margin-left: 200px;
+    text-align: center;
+}
+
+label-form{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 18px;
+    color: #333;
+    height: 20px;
+    width: 200px;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: right;
+    clear: both;
+}
+
+/*
+colores sobre el boton
+ */
+[type='submit'] {
+    color: white;
+    background-color: #2980b9;
+    font-weight: 600;
+}
+
+/*
+talbas
+ */
+.table{
+    position: relative;
+    left: 0px;
+
+}
+
+
+table {     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    margin: 40px;
+    width: 730px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th {     font-size: 13px;     font-weight: normal;     padding: 8px;     background: #b9c9fe;
+    border-top: 4px solid #aabcfe;    border-bottom: 1px solid #fff; color: #039; }
+
+td {    padding: 8px;     background: #e8edff;     border-bottom: 1px solid #fff;
+    color: #669;    border-top: 1px solid transparent; }
+
+tr:hover td { background: #d0dafd; color: #339; }
+
+
+
+
+
