@@ -1,10 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>OfficialPage</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+<head>
+    <meta charset="utf-8">
+    <title>Cabecera fija</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
-<h1>En desarrollo</h1>
+
+<header id="main-header">
+
+    <a id="logo-header" href="#">
+        <span class="site-name">Pagina Funcionario</span>
+    </a> <!-- / #logo-header -->
+
+    <navof>
+        <ul id="sesion">
+            <li><a id="register-official">Crear Usuario</a></li>
+            <li><a  id="log-out">Cerrar Sesión</a></li>
+        </ul>
+    </navof><!-- / nav -->
+
+    <navof>
+        <ul id="options">
+            <li><a id="list-owners">Lista de Propietarios</a></li>
+            <li><a id="list-pets">Lista de Mascotas</a></li>
+            <li><a id="list-cases">Lista de Casos</a></li>
+            <li><a id="list-visits">Lista de Visitas</a></li>
+            <li><a id="chat">Chat</a></li>
+            <li><a id="update-data">Actualizar Datos</a></li>
+
+        </ul>
+    </navof><!-- / nav -->
+</header><!-- / #main-header -->
+<section id="main-content">
+
+    <article>
+        <header>
+            <h1>Chat</h1>
+        </header>
+        <div id="chatbox"></div>
+
+        <form name="message" action="">
+            <input name="usermsg" type="text" id="usermsg" size="63" />
+            <input type='submit' id="submitmsg" />
+        </form>
+        </div>
+
+    </article> <!-- /article -->
+
+</section> <!-- / #main-content -->
+
 </body>
 </html>

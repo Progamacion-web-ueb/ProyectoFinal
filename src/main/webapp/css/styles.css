@@ -37,36 +37,107 @@ recuadro de el header
  * Navegación
  */
 #options{
-    position: relative;
+    position: center;
     right: 200px;
 }
 /*
-posiciones cabecera
+posiciones cabecera official
  */
-nav {
+navof {
     float: right;
-}
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    padding-right: 0px;
-}
-
-nav ul li {
-    display: inline-block;
-    line-height: 80px;
-}
-
-nav ul li a {
+    text-align: center;
     display: block;
-    padding: 0 10px;
+}
+navof ul {
+    margin-top: 0em;
+    margin-bottom: 0em;
+    margin-left: 5px;
+    margin-right: 180px;
+    padding: 0px;
+    padding-right: 50px;
+    list-style-type: none;
+}
+
+navof ul li {
+    display: inline-block;
+    line-height: 35px;
+}
+
+navof ul li a {
+    display: block;
+    padding: 5px;
     text-decoration: none;
 }
 
-nav ul li a:hover {
+navof ul li a:hover {
     background: #0b76a6;
 }
+
+/*
+posiciones cabecera owner
+ */
+navow {
+    float: right;
+    text-align: center;
+    display: inline-block;
+}
+navow ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-right: 35px;
+    list-style-type: none;
+}
+
+navow ul li {
+    display: inline-block;
+    line-height: 35px;
+}
+
+navow ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+navow ul li a:hover {
+    background: #0b76a6;
+}
+/*
+posiciones cabecera vet
+ */
+navve {
+    float: right;
+    text-align: center;
+    display: inline-block;
+}
+navve ul {
+    margin-top: 0em;
+    margin-bottom: 0em;
+    margin-left: 200px;
+    margin-right: 5px;
+    padding: 0;
+    list-style: none;
+    padding-right: 20px;
+    list-style-type: none;
+}
+
+navve ul li {
+    display: inline-block;
+    line-height: 20px;
+}
+
+navve ul li a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+}
+
+navve ul li a:hover {
+    background: #0b76a6;
+}
+
+
 
 
 /*
@@ -191,6 +262,25 @@ input {
     border: 0;
     border-bottom: 5px solid rgba(0,0,0,.12);
     line-height: 40px;
+}
+
+#chatbox {
+    text-align:left;
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background:#fff;
+    height:270px;
+    width:430px;
+    border:1px solid #ACD8F0;
+    overflow:auto; }
+
+#usermsg {
+    width:395px;
+    border:1px solid #ACD8F0;
+    margin-top: 10px;
+    margin-left: 200px;
+    text-align: center;
 }
 
 label-form{

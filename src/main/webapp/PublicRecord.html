@@ -13,38 +13,49 @@
 </head>
 <body>
 
-<header>
-    <h1>Crear Usuario</h1>
+<header id="main-header">
+
+    <a id="logo-header" href="#">
+        <span class="site-name">Pagina usuario</span>
+    </a> <!-- / #logo-header -->
+
+    <header>
+        <h1>Crear usuario</h1>
+    </header>
 </header>
 
-
+<section id="main-content">
+    <article>
 <div class='container'>
 
     <div class='form'>
         <label>Nombre de Usuario</label>
-        <input type="text" />
+        <input type="text" id="username"/>
         <label>Contraseña</label>
-        <input type='text' />
+        <input type='text' id="password"/>
         <label>Email</label>
-        <input type='text' />
+        <input type='text' id="email"/>
         <label>Nombre</label>
-        <input type="text" />
+        <input type="text" id="name"/>
         <label>Dirección</label>
-        <input type='text' />
+        <input type='text' id="address"/>
         <label>Localidad</label>
-        <input type='text' />
-        <select>Role
-            <option>Propietario</option>
-            <option>Veterinaria</option>
+        <input type='text' id="neighborhood"/>
+        <select id="rola">Role
+            <option value="owner">Propietario</option>
+            <option value="vet">Veterinaria</option>
         </select>
-        <input type='submit' />
+        <input type='submit' id="register"/>
     </div>
+      </div>
     <div/><!-- /form -->
+    </article> <!-- /article -->
+    </section> <!-- / #main-content -->
 
     <footer id="main-footer">
         <p>&copy; 2014 <a href="https://github.com/Progamacion-web-ueb/PoroyectoFinal">GitHub</a></p>
     </footer> <!-- / #main-footer -->
-    <script src="js/main.js"></script>
+    <script src="js/register.js"></script>
 
 </body>
 </html>
