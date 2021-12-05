@@ -1,6 +1,6 @@
 
 document.querySelector("#loginU").addEventListener("click", loginUsersOfficial);
-debugger;
+
 
 if(checkCookie("login")){
     console.log("relogin on")
@@ -9,10 +9,10 @@ if(checkCookie("login")){
 
 var user;
 var password;
+var keyData
 
 function loginUsersOfficial() {
-
-    var keyData =0;
+    keyData =0;
     user = document.getElementById('login-user').value;
     password = document.getElementById('login-password').value;
 
@@ -23,6 +23,7 @@ function loginUsersOfficial() {
                     //console.log("data"+data);
                     keyData++;
                 })
+
                 for(let i=0;i<keyData;i++){
                     var userDb = data[i]["username"];
                     var passwordDb = data[i]["password"];

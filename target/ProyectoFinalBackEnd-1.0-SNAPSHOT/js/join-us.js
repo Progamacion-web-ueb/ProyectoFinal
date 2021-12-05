@@ -60,7 +60,7 @@ function registerUser() {
                 return data.json();
             }).then(update => {
             console.log(update);
-
+            alert("Usuario creado correctamente")
         }).catch(e => {
             console.log(e);
         });
@@ -92,6 +92,7 @@ function registerUser() {
                 return data.json();
             }).then(update => {
             console.log(update);
+            alert("Usuario creado correctamente")
 
         }).catch(e => {
             console.log(e);

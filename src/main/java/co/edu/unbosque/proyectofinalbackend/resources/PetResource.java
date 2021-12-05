@@ -18,13 +18,13 @@ public class PetResource {
 // se crea pet pero el id queda en null
 
     @POST
-
+    @Path("/{owner_id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(PetPOJO pet ) {
+    public Response create(PetPOJO pet , @PathParam("owner_id") String owner_id) {
 
         System.out.println(pet.toString());
-
+        pet.setOwner_id(owner_id);
         pet= new PetService().createPet(pet.getPet_id(),pet.getMicrochip(),pet.getName(),
                 pet.getSpecies(),pet.getRace(),pet.getSize(),pet.getSex(),pet.getPicture(), pet.getOwner_id());
 
