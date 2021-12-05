@@ -5,12 +5,6 @@
     <title>OwnerPage</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<head>
-    <meta charset="utf-8">
-    <title>Cabecera fija</title>
-
-    <link rel="stylesheet" href="style.css">
-</head>
 
 <body>
 
@@ -38,12 +32,11 @@
     </navow><!-- / nav -->
 </header><!-- / #main-header -->
 
-
 <section id="main-content">
 
     <article>
         <header>
-            <h1>Actualizar mis datos</h1>
+            <h1>Crear un Caso</h1>
         </header>
 
         <img src="http://placekitten.com/800/250" alt="Gatito" />
@@ -52,29 +45,32 @@
         <div class='container'>
 
             <div class='form'>
-                <label>Email</label>
-                <input type="text" />
-                <label>Contraseña</label>
-                <input type='text' />
-                <label>Dirección</label>
-                <input type="text" />
-                <label>Localidad</label>
-                <input type='text' />
-                <input type='submit' />
+                <label>Fecha</label>
+                <input  id="created-at" type="date" />
+                <label>Descipción: </label>
+                <input id="description" type='text' />
+                <select id="type">Tipo de caso
+                    <option value="lost">Perdida</option>
+                    <option value="stole">Robo</option>
+                    <option value="death">Fallecimiento</option>
+                </select>
+                <br>
+                <label>Pet Id</label>
+                <input id="pet-id" type="text" />
+                <input id="save-case" type="submit" value="Agregar"  />
             </div>
             <div/><!-- /form -->
-
+        </div> <! -- / container -->
     </article> <!-- /article -->
 
 </section> <!-- / #main-content -->
-
-
 
 <footer id="main-footer">
     <p>&copy; 2014 <a href="https://github.com/Progamacion-web-ueb/PoroyectoFinal">GitHub</a></p>
 </footer> <!-- / #main-footer -->
 <script src="./js/log-out.js"></script>
 <script src="./js/owner-pages.js"></script>
+<script src="./js/add-petcase.js"></script>
 
 </body>
 </html>
