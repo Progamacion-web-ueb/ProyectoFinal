@@ -4,6 +4,7 @@ import co.edu.unbosque.proyectofinalbackend.jpa.entities.Pet;
 import co.edu.unbosque.proyectofinalbackend.jpa.entities.Owner;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 import java.util.Optional;
 
 public class PetRepositoryImpl implements PetRepository{
@@ -34,11 +35,8 @@ public class PetRepositoryImpl implements PetRepository{
     }
 
     @Override
-    public Pet findByPet_id(String pet_id) {
-        Pet pet = (Pet) entityManager.createNamedQuery("Owner.findByUsername",Pet.class)
-                .setParameter("username", pet_id)
-                .getSingleResult();
-        return pet ;
+    public List<Pet> findAll() {
+         return entityManager.createQuery("from Pet ").getResultList();
     }
 
 

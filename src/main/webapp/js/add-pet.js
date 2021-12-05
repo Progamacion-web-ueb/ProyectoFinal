@@ -23,6 +23,13 @@ function addPet() {
      sexPg= document.getElementById("sex").value;
      picturePg= document.getElementById("picture").value;
 
+     if(microchipPg===""){
+         microchipPg=null;
+     }
+     if(picturePg===""){
+         picturePg=null;
+     }
+
     var id1 = namePg.match(/.{1,2}/g);
     var id2 = speciesPg.match(/.{1,2}/g);
     var id3 = racePg.match(/.{1,2}/g);

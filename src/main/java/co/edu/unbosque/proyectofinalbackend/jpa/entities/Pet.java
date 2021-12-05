@@ -8,10 +8,7 @@ import java.util.List;
 
 @Table(name = "pet")
 @Entity
-@NamedQueries({
-        @NamedQuery(name = "Pet.findByPet_id",
-                query = "SELECT a FROM Pet a WHERE a.pet_id = :pet_id")
-})
+
 public class Pet  {
 
     @Id
