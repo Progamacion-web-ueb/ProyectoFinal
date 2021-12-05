@@ -21,6 +21,7 @@ public class OwnerResource {
 
         List<OwnerPOJO> owners ;
         owners = new OwnerService().listOwners();
+        System.out.println("conteo "+owners.size());
         return Response.ok()
                 .entity(owners)
                 .build();
@@ -30,8 +31,8 @@ public class OwnerResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response create(OwnerPOJO owner) {
+        owner.setPersonId(conteoOwners()+1);
         Optional<OwnerPOJO> persistedOwner = new OwnerService().createOwner(owner);
-
         if (persistedOwner.isPresent()) {
             return Response.status(Response.Status.CREATED)
                     .entity(persistedOwner.get())
@@ -41,6 +42,15 @@ public class OwnerResource {
                     .entity("Owner user could not be created")
                     .build();
         }
+    }
+
+    public Long conteoOwners(){
+        Long tamaño ;
+        List<OwnerPOJO> owners ;
+        owners = new OwnerService().listOwners();
+        System.out.println("conteo "+owners.size());
+        tamaño=Long.parseLong( owners.size()+"");
+        return tamaño;
     }
 /*
     //@Logged
