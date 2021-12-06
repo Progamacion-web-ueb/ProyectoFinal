@@ -1,0 +1,635 @@
+{
+	"info": {
+		"_postman_id": "bfddb6c8-75dc-4c66-82d0-46d9dc756fbd",
+		"name": "Proyecto Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Owner",
+			"item": [
+				{
+					"name": "Create Owner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"username\":\"jones111\",\r\n\"password\":\"paco123\",\r\n\"email\":\"paco@email.com\",\r\n\"name\":\"paco jones\",\r\n\"address\":\"clle11\",\r\n\"neighborhood\":\"engativa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/owners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"owners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Owner",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/owners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"owners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Owner",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"\",\r\n    \"password\":\"\",\r\n    \"addres\":\"\",\r\n    \"neighborhood\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/owners/{person_id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"owners",
+								"{person_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Owner-neigborhood",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/owners/engativa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"owners",
+								"engativa"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Official",
+			"item": [
+				{
+					"name": "Create Official",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"username\":\"alcaldia2\",\r\n\"password\":\"alcaldia2\",\r\n\"email\":\"alcaldia2@email.com\",\r\n\"name\":\"alcalde2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/officials",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"officials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Official",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "role",
+								"value": "vet",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/officials",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"officials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update official",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"\",\r\n    \"password\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/officials/{username}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"officials",
+								"{username}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vet",
+			"item": [
+				{
+					"name": "Create Vet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"username\":\"vet123\",\r\n\"password\":\"vet123\",\r\n\"email\":\"vetma@email.com\",\r\n\"name\":\"vet mascota feliz\",\r\n\"address\":\"clle111\",\r\n\"neighborhood\":\"engativa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/vets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"vets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/vets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"vets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"\",\r\n    \"password\":\"\",\r\n    \"addres\":\"\",\r\n    \"neighborhood\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/vets/{username}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"vets",
+								"{username}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pet",
+			"item": [
+				{
+					"name": "Create Pet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"pet_id\":\"pe34\",\r\n\"microchip\":\"11\",\r\n\"name\":\"lulu\",\r\n\"species\":\"dog\",\r\n\"race\":\"labrador\",\r\n\"size\":\"small\",\r\n\"sex\":\"male\",\r\n\"picture\":\"imagental\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/pets/paco123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"pets",
+								"paco123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/pets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"\",\r\n    \"species\":\"\",\r\n    \"race\":\"\",\r\n    \"sex\":\"\",\r\n    \"picture\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/pets/{owner_id}/{pet_id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"pets",
+								"{owner_id}",
+								"{pet_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get PetBy ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/pets/paco123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"pets",
+								"paco123"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Visit",
+			"item": [
+				{
+					"name": "Create Visit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"visit_id\":\"caso22\",\r\n\"created_at\":\"12/11/2021\",\r\n\"type\":\"perdida\",\r\n\"description\":\"se perdio el perro\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/visits/vet1/ta-pe-pi-ma",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"visits",
+								"vet1",
+								"ta-pe-pi-ma"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Visit",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/visits",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"visits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Visit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"created_at\":\"\",\r\n    \"type\":\"\",\r\n    \"description\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/visits/{vet_id}/{pet_id}/{visit_id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"visits",
+								"{vet_id}",
+								"{pet_id}",
+								"{visit_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Visit by VetId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/visits/vet1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"visits",
+								"vet1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Visit by PetID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/visits/vet/ta-pe-pi-ma",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"visits",
+								"vet",
+								"ta-pe-pi-ma"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pet Case",
+			"item": [
+				{
+					"name": "Create PetCase",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"case_id\":\"caso111123\",\r\n\"created_at\":\"12/11/2021\",\r\n\"type\":\"robo\",\r\n\"description\":\"se perdio el perro\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/petCases/pe34",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"petCases",
+								"pe34"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get PetCase",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/petCases",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"petCases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update PetCase",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"created_at\":\"\",\r\n    \"type\":\"\",\r\n    \"description\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/petCases/{pet_id}/{case_id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ProyectoFinalBackEnd-1.0-SNAPSHOT",
+								"api",
+								"petCases",
+								"{pet_id}",
+								"{case_id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
