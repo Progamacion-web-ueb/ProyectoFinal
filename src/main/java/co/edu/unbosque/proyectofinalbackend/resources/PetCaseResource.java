@@ -19,8 +19,7 @@ public class PetCaseResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response create(PetCasePOJO petCase, @PathParam("pet_id") String pet_id) {
 
-        System.out.println(petCase.getPet_id()+"otro"+pet_id);
-
+        petCase.setPet_id(pet_id);
         petCase = new PetCaseService().createPetCase(petCase.getCase_id(), petCase.getCreated_at(), petCase.getType(), petCase.getDescription(), petCase.getPet_id());
 
         if (!petCase.equals(null)) {

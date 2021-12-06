@@ -48,7 +48,6 @@ public class Pet  {
     @Fetch(value = FetchMode.JOIN)
     private List<Visit> Visit;
 
-
     public Pet() {
     }
 

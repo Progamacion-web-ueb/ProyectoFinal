@@ -1,34 +1,51 @@
 package co.edu.unbosque.proyectofinalbackend.services;
 
-import co.edu.unbosque.proyectofinalbackend.jpa.entities.Pet;
-import co.edu.unbosque.proyectofinalbackend.jpa.entities.Vet;
+
+
 import co.edu.unbosque.proyectofinalbackend.jpa.entities.Visit;
 import co.edu.unbosque.proyectofinalbackend.jpa.repositories.*;
-import co.edu.unbosque.proyectofinalbackend.resources.pojos.PetCasePOJO;
 import co.edu.unbosque.proyectofinalbackend.resources.pojos.VisitPOJO;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Stateless
 public class VisitService {
 
     VisitRepository visitRepository;
-    VetRepository vetRepository;
-    PetRepository petRepository;
 
+    public List<VisitPOJO> listVisits(String vet_id) {
 
-    /*
-            this.visit_id = visit_id;
-        this.created_at = created_at;
-        this.type = type;
-        this.description = description;
-        this.pet_id = pet_id;
-        this.vet_id = vet_id;
-     */
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        visitRepository = new VisitRepositoryImpl (entityManager);
+        List<Visit> visits = visitRepository.findAll();
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<VisitPOJO> visitsPOJO = new ArrayList<>();
+        for (Visit visit : visits) {
+            if(vet_id.equals(visit.getVet().getUsername())){
+                visitsPOJO.add(new VisitPOJO(
+                        visit.getVisit_id(),
+                        visit.getCreated_at(),
+                        visit.getType(),
+                        visit.getDescription(),
+                        visit.getPet(),
+                        visit.getVet()));
+            }
+        }
+
+        return visitsPOJO;
+    }
+
     public VisitPOJO createVisit(String visit_id, String created_at,String type,String description,String pet_id,String vet_id) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");

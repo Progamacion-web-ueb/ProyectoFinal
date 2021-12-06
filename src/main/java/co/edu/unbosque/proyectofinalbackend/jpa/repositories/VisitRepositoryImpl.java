@@ -5,6 +5,7 @@ import co.edu.unbosque.proyectofinalbackend.jpa.entities.Vet;
 import co.edu.unbosque.proyectofinalbackend.jpa.entities.Visit;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 import java.util.Optional;
 
 public class VisitRepositoryImpl implements VisitRepository{
@@ -37,5 +38,10 @@ public class VisitRepositoryImpl implements VisitRepository{
             e.printStackTrace();
         }
         return Optional.empty();
+    }
+
+    @Override
+    public List<Visit> findAll() {
+        return entityManager.createQuery("from Visit ").getResultList();
     }
 }

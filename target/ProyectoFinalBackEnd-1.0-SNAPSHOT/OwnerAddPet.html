@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-
 <body>
 
 <header id="main-header">
@@ -38,27 +37,36 @@
 
     <article>
         <header>
-            <h1>Ver mis mascotas</h1>
+            <h1>Agregar mascotas</h1>
         </header>
 
         <img src="http://placekitten.com/800/250" alt="Gatito" />
 
-        <div class="table">
-            <table id="table-pets">
-                <tr><th>Pet id</th> <th>Nombre</th> <th>Especie</th> <th>Raza</th>
-                    <th>Sexo</th> <th>Tamaño</th><th>Imagen</th>
-                </tr>
-                <tr><td>lipeve</td> <td>Lulu</td> <td>Gato</td> <td>Coquer</td>
-                    <td>Hembra</td> <td>Pequeño</td>
-                    <td><img src="http://placekitten.com/803/250" /></td>
-                </tr>
-            </table>
-        </div>
+
+        <div class='container'>
+
+            <div class='form'>
+                <label>Microchip</label>
+                <input  id="microchip" type="text" />
+                <label>Nombre</label>
+                <input id="name" type='text' />
+                <label>Especie</label>
+                <input id="species" type='text' />
+                <label>Raza</label>
+                <input id="reace" type="text" />
+                <label>Tamaño</label>
+                <input id="size" type='text' />
+                <label>Sexo</label>
+                <input id="sex" type='text' />
+                <label>Imagen</label>
+                <input id="picture" type="file" >
+                <input id="save-pet" type="submit" value="Agregar"  />
+            </div>
+        <div/><!-- /form -->
 
     </article> <!-- /article -->
 
 </section> <!-- / #main-content -->
-
 
 
 <footer id="main-footer">
@@ -66,7 +74,7 @@
 </footer> <!-- / #main-footer -->
 <script src="./js/log-out.js"></script>
 <script src="./js/owner-pages.js"></script>
-<script src="./js/show-pets.js"></script>
+<script src="./js/add-pet.js"></script>
 
 </body>
 </html>

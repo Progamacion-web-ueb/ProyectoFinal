@@ -5,8 +5,12 @@
     <title>OwnerPage</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+<head>
+    <meta charset="utf-8">
+    <title>Cabecera fija</title>
 
-
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
 <header id="main-header">
@@ -33,40 +37,34 @@
     </navow><!-- / nav -->
 </header><!-- / #main-header -->
 
-
 <section id="main-content">
 
     <article>
         <header>
-            <h1>Ver mis mascotas</h1>
+            <h1>Actualizar mis Matos</h1>
         </header>
-
         <img src="http://placekitten.com/800/250" alt="Gatito" />
 
-        <div class="table">
-            <table id="table-pets">
-                <tr><th>Pet id</th> <th>Nombre</th> <th>Especie</th> <th>Raza</th>
-                    <th>Sexo</th> <th>Tamaño</th><th>Imagen</th>
-                </tr>
-                <tr><td>lipeve</td> <td>Lulu</td> <td>Gato</td> <td>Coquer</td>
-                    <td>Hembra</td> <td>Pequeño</td>
-                    <td><img src="http://placekitten.com/803/250" /></td>
-                </tr>
-            </table>
-        </div>
+        <div class='container'>
 
+            <div class='form'>
+                <label>Microchip</label>
+                <input type='text' />
+                <label>Imagen</label>
+                <input type="file" >
+                <input type='submit' />
+            </div>
+            <div/><!-- /form -->
+        </div>
     </article> <!-- /article -->
 
 </section> <!-- / #main-content -->
-
-
 
 <footer id="main-footer">
     <p>&copy; 2014 <a href="https://github.com/Progamacion-web-ueb/PoroyectoFinal">GitHub</a></p>
 </footer> <!-- / #main-footer -->
 <script src="./js/log-out.js"></script>
 <script src="./js/owner-pages.js"></script>
-<script src="./js/show-pets.js"></script>
 
 </body>
 </html>
