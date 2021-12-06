@@ -49,11 +49,15 @@ fetch("http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/pets/"+owner_
             tdTamaño.innerHTML= data[i].size;
 
             let tdImagen = document.createElement("td");
-            let picture = document.createElement("img")
             document.getElementById("table-pets").appendChild(pet);
             pet.appendChild(tdImagen);
-            tdImagen.appendChild(picture)
-            picture.innerHTML= "src="+data[i].picture;
+            var url = "http://placekitten.com/803/20"+i;
+             tdImagen.innerHTML= "<img id=\"imgDB\" src=\""+url+"\"/>";
+
+            /*
+            documento.getElementById("content").innerHTML = "<img src ='  " el valor de la imagen". jpg' alt=">" ;
+            <img src="http://placekitten.com/803/250" />
+             */
 
         }
     });

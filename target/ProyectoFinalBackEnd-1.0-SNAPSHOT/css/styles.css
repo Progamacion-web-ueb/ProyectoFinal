@@ -36,8 +36,13 @@ recuadro de el header
  * Navegación
  */
 #options{
-    position: center;
-    right: 200px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: 100px;
+    margin-right: 5px;
+    padding: 0px;
+    padding-right: 15px;
+    list-style-type: none;
 }
 /*
 posiciones cabecera official
@@ -46,6 +51,15 @@ navof {
     float: right;
     text-align: center;
     display: block;
+}
+navofs ul {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: 5px;
+    margin-right: 100px;
+    padding: 0px;
+    padding-right: 15px;
+    list-style-type: none;
 }
 navof ul {
     margin-top: 2em;

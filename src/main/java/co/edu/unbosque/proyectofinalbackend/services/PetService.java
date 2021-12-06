@@ -52,7 +52,7 @@ public class PetService {
     }
 
 
- public List<PetPOJO> listPets(String owner_id) {
+ public List<PetPOJO> listPetsId(String owner_id) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -60,23 +60,10 @@ public class PetService {
         petRepository = new PetRepositoryImpl(entityManager);
         List<Pet> pets = petRepository.findAll();
 
-
         entityManager.close();
         entityManagerFactory.close();
 
         List<PetPOJO> petsPOJO = new ArrayList<>();
-
-        /*
-                this.pet_id = pet_id;
-        this.microchip = microchip;
-        this.name = name;
-        this.species = species;
-        this.race = race;
-        this.size = size;
-        this.sex = sex;
-        this.picture = picture;
-        this.owner = owner;
-         */
 
         for (Pet pet : pets) {
             if(owner_id.equals(pet.getOwner().getUsername())){
@@ -92,6 +79,34 @@ public class PetService {
                         pet.getOwner()));
             }
 
+        }
+        return petsPOJO;
+    }
+    public List<PetPOJO> listPets( ) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        petRepository = new PetRepositoryImpl(entityManager);
+        List<Pet> pets = petRepository.findAll();
+
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<PetPOJO> petsPOJO = new ArrayList<>();
+
+        for (Pet pet : pets) {
+                petsPOJO.add(new PetPOJO(
+                        pet.getPet_id(),
+                        pet.getMicrochip(),
+                        pet.getName(),
+                        pet.getSpecies(),
+                        pet.getRace(),
+                        pet.getSize(),
+                        pet.getSex(),
+                        pet.getPicture(),
+                        pet.getOwner()));
         }
         return petsPOJO;
     }

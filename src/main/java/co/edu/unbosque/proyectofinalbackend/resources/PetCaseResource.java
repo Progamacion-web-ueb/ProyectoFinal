@@ -7,6 +7,7 @@ import co.edu.unbosque.proyectofinalbackend.services.PetCaseService;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 import java.util.Optional;
 
 @Path("/petCases")
@@ -32,4 +33,17 @@ public class PetCaseResource {
                     .build();
         }
     }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response list() {
+        List<PetCasePOJO> petcases ;
+        petcases = new PetCaseService().listPetCases();
+
+        return Response.ok()
+                .entity(petcases)
+                .build();
+    }
+
+
 }

@@ -2,15 +2,17 @@ package co.edu.unbosque.proyectofinalbackend.services;
 
 
 
+
 import co.edu.unbosque.proyectofinalbackend.jpa.entities.PetCase;
 import co.edu.unbosque.proyectofinalbackend.jpa.repositories.PetCaseRepositoryImpl;
 import co.edu.unbosque.proyectofinalbackend.jpa.repositories.PetCaseRepository;
 import co.edu.unbosque.proyectofinalbackend.resources.pojos.PetCasePOJO;
 import co.edu.unbosque.proyectofinalbackend.resources.pojos.PetPOJO;
 
-
 import javax.ejb.Stateless;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Stateless
@@ -41,5 +43,31 @@ public class PetCaseService {
         }
         return petCasePOJO;
 
+    }
+
+    public List<PetCasePOJO> listPetCases( ) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        petCaseRepository = new PetCaseRepositoryImpl(entityManager);
+        List<PetCase> petCases = petCaseRepository.findAll();
+
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<PetCasePOJO> petCasesPOJO = new ArrayList<>();
+
+        for (PetCase petcase : petCases) {
+            petCasesPOJO.add(new PetCasePOJO(
+                    petcase.getCase_id(),
+                    petcase.getCreated_at(),
+                    petcase.getType(),
+                    petcase.getDescription(),
+                    petcase.getPet()
+                    ));
+        }
+        return petCasesPOJO;
     }
 }

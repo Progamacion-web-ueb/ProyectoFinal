@@ -6,70 +6,83 @@ var typePg;
 var descriptionPg;
 var pet_idPg;
 var vet_idPg;
+var boolean;
 
 function addVisit() {
+     debugger;
 
-     created_atPg= document.getElementById("created_at").value;
-     typePg= document.getElementById("type").value;
-     descriptionPg= document.getElementById("description").value;
-     pet_idPg= document.getElementById("pet_id").value;
+          created_atPg= document.getElementById("created_at").value;
+          typePg= document.getElementById("type").value;
+          descriptionPg= document.getElementById("description").value;
+          pet_idPg= document.getElementById("pet_id").value;
 
-     var cookie= getCookie("login");
-     const myArray = cookie.split(",");
+          var cookie= getCookie("login");
+          const myArray = cookie.split(",");
 
-     if(myArray[0]==="vet"){
-          vet_idPg=myArray[1];
+          if(myArray[0]==="vet"){
+               vet_idPg=myArray[1];
+          }
+
+          var id1 = typePg.match(/.{1,2}/g);
+          var id2 = pet_idPg.match(/.{1,2}/g);
+          var id3 = vet_idPg.match(/.{1,2}/g);
+
+          visit_idPg= ("visit"+id1[0]+"-"+id2[0]+"-"+id3[0]);
+     if(validateEsteril()){
+          const update = {
+               visit_id: visit_idPg,
+               created_at: created_atPg,
+               type: typePg,
+               description: descriptionPg
+          };
+
+          const options = {
+               method: 'POST',
+               headers: {
+                    'Content-Type': 'application/json',
+               },
+               body: JSON.stringify(update),
+          };
+
+          fetch('http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/visits/'+vet_idPg+'/'+pet_idPg, options)
+              .then(data => {
+                   if (!data.ok) {
+                        throw Error(data.status);
+                   }
+                   return data.json();
+              }).then(update => {
+               console.log(update);
+               alert("Usuario creado correctamente")
+          }).catch(e => {
+               console.log(e);
+          });
      }
-
-     var id1 = typePg.match(/.{1,2}/g);
-     var id2 = pet_idPg.match(/.{1,2}/g);
-     var id3 = vet_idPg.match(/.{1,2}/g);
-
-     visit_idPg= ("visit"+id1[0]+"-"+id2[0]+"-"+id3[0]);
-
-
-
-     console.log(visit_idPg);
-     console.log(created_atPg);
-     console.log(typePg);
-     console.log(descriptionPg);
-     console.log(pet_idPg);
-     console.log(vet_idPg);
-
-     const update = {
-          visit_id: visit_idPg,
-          created_at: created_atPg,
-          type: typePg,
-          description: descriptionPg
-     };
-
-     const options = {
-          method: 'POST',
-          headers: {
-               'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(update),
-     };
-
-     fetch('http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/visits/'+vet_idPg+'/'+pet_idPg, options)
-         .then(data => {
-              if (!data.ok) {
-                   throw Error(data.status);
-              }
-              return data.json();
-         }).then(update => {
-          console.log(update);
-          alert("Usuario creado correctamente")
-     }).catch(e => {
-          console.log(e);
-     });
-
-
-
-
-
 }
 
+function  validateEsteril(){
+
+     var   keyData=0;
+     fetch('http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/visits/vet/'+pet_idPg)
+         .then(response => response.json())
+         .then(data => {
+              Object.keys(data).map((data) => {
+                   //console.log("data"+data);
+                   keyData++;
+              })
+              for (let i = 0; i < keyData; i++) {
+                   console.log(data[i].type);
+                   if(data[i].type==="Esterilizacion"){
+                         alert("esterilizacion ya realizada")
+                        clear();
+                        boolean=false
+                   }else{
+                        boolean=true;
+                   }
+
+              }
+         });
+     return boolean;
+}
 
 function getCookie(cname) {
      var name = cname + "=";
@@ -82,4 +95,7 @@ function getCookie(cname) {
           return c.substring(name.length, c.length);
      }
      return "";
+}
+function clear() {
+     document.location.reload();
 }

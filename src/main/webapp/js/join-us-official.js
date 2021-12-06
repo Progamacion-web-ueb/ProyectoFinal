@@ -42,6 +42,7 @@ function registerOfficial() {
                 throw Error(data.status);
             }
             return data.json();
+            alert("El usuario ya esta en uso")
         }).then(update => {
         console.log(update);
         alert("Official creado correctamente")

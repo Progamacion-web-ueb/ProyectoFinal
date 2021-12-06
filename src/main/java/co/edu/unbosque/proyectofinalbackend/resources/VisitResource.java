@@ -36,6 +36,18 @@ public class VisitResource {
         }
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response list() {
+
+        List<VisitPOJO> visits ;
+        visits = new VisitService().listVisits();
+
+        return Response.ok()
+                .entity(visits)
+                .build();
+    }
+
 
     @GET
     @Path("/{vet_id}")
@@ -43,7 +55,20 @@ public class VisitResource {
     public Response list(@PathParam("vet_id") String vet_id) {
 
         List<VisitPOJO> visits ;
-        visits = new VisitService().listVisits(vet_id);
+        visits = new VisitService().listVisitsByVet(vet_id);
+
+        return Response.ok()
+                .entity(visits)
+                .build();
+    }
+
+    @GET
+    @Path("/{vet}/{pet_id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response list1( @PathParam("pet_id") String pet_id, @PathParam("vet") String vet) {
+
+        List<VisitPOJO> visits ;
+        visits = new VisitService().listVisitsByPet(pet_id);
 
         return Response.ok()
                 .entity(visits)

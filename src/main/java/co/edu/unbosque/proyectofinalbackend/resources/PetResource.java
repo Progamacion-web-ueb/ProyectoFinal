@@ -37,18 +37,27 @@ public class PetResource {
                     .entity("Pet could not be created")
                     .build();
         }
-
-
     }
 
     @GET
     @Path("/{owner_id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response list(@PathParam("owner_id") String owner_id) {
+    public Response listId(@PathParam("owner_id") String owner_id) {
 
 
         List<PetPOJO> pets ;
-        pets = new PetService().listPets(owner_id);
+        pets = new PetService().listPetsId(owner_id);
+
+        return Response.ok()
+                .entity(pets)
+                .build();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response list() {
+        List<PetPOJO> pets ;
+        pets = new PetService().listPets();
 
         return Response.ok()
                 .entity(pets)

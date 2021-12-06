@@ -1,7 +1,5 @@
 package co.edu.unbosque.proyectofinalbackend.services;
 
-
-
 import co.edu.unbosque.proyectofinalbackend.jpa.entities.Visit;
 import co.edu.unbosque.proyectofinalbackend.jpa.repositories.*;
 import co.edu.unbosque.proyectofinalbackend.resources.pojos.VisitPOJO;
@@ -19,7 +17,8 @@ public class VisitService {
 
     VisitRepository visitRepository;
 
-    public List<VisitPOJO> listVisits(String vet_id) {
+
+    public List<VisitPOJO> listVisits() {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -32,6 +31,32 @@ public class VisitService {
 
         List<VisitPOJO> visitsPOJO = new ArrayList<>();
         for (Visit visit : visits) {
+                visitsPOJO.add(new VisitPOJO(
+                        visit.getVisit_id(),
+                        visit.getCreated_at(),
+                        visit.getType(),
+                        visit.getDescription(),
+                        visit.getPet(),
+                        visit.getVet()));
+        }
+        return visitsPOJO;
+    }
+
+    public List<VisitPOJO> listVisitsByVet(String vet_id) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        visitRepository = new VisitRepositoryImpl (entityManager);
+        List<Visit> visits = visitRepository.findAll();
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<VisitPOJO> visitsPOJO = new ArrayList<>();
+        for (Visit visit : visits) {
+            System.out.println("printtttttttttt"+vet_id);
+            System.out.println("printtttttttttt"+visit.getVet().getUsername());
             if(vet_id.equals(visit.getVet().getUsername())){
                 visitsPOJO.add(new VisitPOJO(
                         visit.getVisit_id(),
@@ -42,7 +67,32 @@ public class VisitService {
                         visit.getVet()));
             }
         }
+        return visitsPOJO;
+    }
 
+    public List<VisitPOJO> listVisitsByPet(String pet_id) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        visitRepository = new VisitRepositoryImpl (entityManager);
+        List<Visit> visits = visitRepository.findAll();
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<VisitPOJO> visitsPOJO = new ArrayList<>();
+        for (Visit visit : visits) {
+                           if(pet_id.equals(visit.getPet().getPet_id())){
+                    visitsPOJO.add(new VisitPOJO(
+                            visit.getVisit_id(),
+                            visit.getCreated_at(),
+                            visit.getType(),
+                            visit.getDescription(),
+                            visit.getPet(),
+                            visit.getVet()));
+                }
+        }
         return visitsPOJO;
     }
 
