@@ -15,20 +15,13 @@ function addPet() {
     alert("function add Pet")
     debugger;
 
-     microchipPg= document.getElementById("microchip").value;
-     namePg= document.getElementById("name").value;
-     speciesPg= document.getElementById("species").value;
-     racePg= document.getElementById("reace").value;
-     sizePg= document.getElementById("size").value;
-     sexPg= document.getElementById("sex").value;
-     picturePg= document.getElementById("picture").value;
-
-     if(microchipPg===""){
-         microchipPg=null;
-     }
-     if(picturePg===""){
-         picturePg=null;
-     }
+    microchipPg= document.getElementById("microchip").value;
+    namePg= document.getElementById("name").value;
+    speciesPg= document.getElementById("species").value;
+    racePg= document.getElementById("reace").value;
+    sizePg= document.getElementById("size").value;
+    sexPg= document.getElementById("sex").value;
+    picturePg= document.getElementById("picture").value;
 
     var id1 = namePg.match(/.{1,2}/g);
     var id2 = speciesPg.match(/.{1,2}/g);
@@ -42,15 +35,15 @@ function addPet() {
     if(myArray[0]==="owner"){
         owner_idPg=myArray[1];
     }
-     console.log(pet_idPg)
-     console.log(microchipPg)
-     console.log(namePg)
-     console.log(speciesPg)
-     console.log(racePg)
-     console.log(sizePg)
-     console.log(sexPg)
-     console.log(picturePg)
-     console.log(owner_idPg)
+    console.log(pet_idPg)
+    console.log(microchipPg)
+    console.log(namePg)
+    console.log(speciesPg)
+    console.log(racePg)
+    console.log(sizePg)
+    console.log(sexPg)
+    console.log(picturePg)
+    console.log(owner_idPg)
 
     debugger;
     const update = {

@@ -70,8 +70,14 @@ function  validateEsteril(){
                    //console.log("data"+data);
                    keyData++;
               })
+              if(keyData==0){
+                   boolean=true;
+              }
               for (let i = 0; i < keyData; i++) {
                    console.log(data[i].type);
+                   if(data[i].type===[]){
+                        boolean=true;
+                   }
                    if(data[i].type==="Esterilizacion"&& typePg==="Esterilizacion"){
                          alert("esterilizacion ya realizada")
                         clear();

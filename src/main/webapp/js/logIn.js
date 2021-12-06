@@ -12,6 +12,7 @@ var password;
 var keyData
 
 function loginUsersOfficial() {
+    debugger;
     keyData =0;
     user = document.getElementById('login-user').value;
     password = document.getElementById('login-password').value;
