@@ -61,6 +61,7 @@ function addVisit() {
 
 function  validateEsteril(){
 
+     typePg= document.getElementById("type").value;
      var   keyData=0;
      fetch('http://localhost:8080/ProyectoFinalBackEnd-1.0-SNAPSHOT/api/visits/vet/'+pet_idPg)
          .then(response => response.json())
@@ -71,7 +72,7 @@ function  validateEsteril(){
               })
               for (let i = 0; i < keyData; i++) {
                    console.log(data[i].type);
-                   if(data[i].type==="Esterilizacion"){
+                   if(data[i].type==="Esterilizacion"&& typePg==="Esterilizacion"){
                          alert("esterilizacion ya realizada")
                         clear();
                         boolean=false

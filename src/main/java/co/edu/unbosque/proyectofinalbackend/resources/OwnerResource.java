@@ -27,6 +27,19 @@ public class OwnerResource {
                 .build();
     }
 
+    @GET
+    @Path("/{neigborhood}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response list(@PathParam("neigborhood") String neigborhood) {
+
+        List<OwnerPOJO> owners ;
+        owners = new OwnerService().listOwnersNeigborhood(neigborhood);
+        System.out.println("conteo "+owners.size());
+        return Response.ok()
+                .entity(owners)
+                .build();
+    }
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

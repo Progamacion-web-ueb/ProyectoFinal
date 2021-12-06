@@ -5,15 +5,6 @@
     <title>officialPage</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-
-<head>
-    <meta charset="utf-8">
-    <title>Cabecera fija</title>
-
-    <link rel="stylesheet" href="style.css">
-</head>
-
-
 <body>
 
 <header id="main-header">
@@ -51,22 +42,25 @@
 
         <img src="http://placekitten.com/800/250" alt="Gatito" />
 
+        <b>
+            <label>Filtar por:</label>
+        </b>
+        <label>Localidad</label>
+        <input id="filter" type="text"/>
+
+        <input id="filter-localidad" type="submit" value="Discriminar por Localidad" />
+        <input id="show" type="submit" value="Mosrtar Propietarios" />
+        <input id="clear" type="submit" value="Limpiar Tabla" />
+
         <div class="table">
-            <table >
+            <table id="table-owners">
                 <tr> <th>Id</th> <th>Email</th> <th>Nombre de usuario</th>
                     <th>Nombre</th> <th>Direccion</th><th>Localidad</th>
                 </tr>
-                <tr> <td>0001</td> <td>paco123@email.com</td> <td>paco123</td>
-                    <td>Paco jones torres</td> <td>Caller 100 # 98 23</td><td>Engativa</td>
-                </tr>
-                <tr> <td>0001</td> <td>paco123@email.com</td> <td>paco123</td>
-                    <td>Paco jones torres</td> <td>Caller 100 # 98 23</td><td>Engativa</td>
-                </tr>
-                <tr> <td>0001</td> <td>paco123@email.com</td> <td>paco123</td>
-                    <td>Paco jones torres</td> <td>Caller 100 # 98 23</td><td>Engativa</td>
-                </tr>
             </table>
+
         </div>
+
 
     </article> <!-- /article -->
 
@@ -78,6 +72,7 @@
 <script src="./js/log-out.js"></script>
 <script src="./js/official-pages.js"></script>
 <script src="./js/register-official.js"></script>
+<script src="./js/Official-ListOwners.js"></script>
 
 
 </body>

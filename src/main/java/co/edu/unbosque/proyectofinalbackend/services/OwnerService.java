@@ -46,6 +46,33 @@ public class OwnerService {
         return ownersPOJO;
     }
 
+    public List<OwnerPOJO> listOwnersNeigborhood(String neigborhood) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        ownerRepository = new OwnerRepositoryImpl(entityManager);
+        List<Owner> owners = ownerRepository.findAll();
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<OwnerPOJO> ownersPOJO = new ArrayList<>();
+        for (Owner owner : owners) {
+            if(neigborhood.equals(owner.getNeighborhood())){
+                ownersPOJO.add(new OwnerPOJO(
+                        owner.getUsername(),
+                        owner.getPassword(),
+                        owner.getEmail(),
+                        owner.getPersonId(),
+                        owner.getName(),
+                        owner.getAddress(),
+                        owner.getNeighborhood()));
+            }
+        }
+
+        return ownersPOJO;
+    }
+
     public Optional<OwnerPOJO> createOwner(OwnerPOJO ownerPOJO) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
